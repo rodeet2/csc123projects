@@ -44,7 +44,7 @@ public class main {
 			  System.out.println("Enter overdraft limit: ");
 			  int limt = sc.nextInt();
 			  
-			 Account acc=  Bank.openAccount(name, lastname, SSN, email, "Checking", limt);
+			 Account1 acc=  Bank1.openAccount(name, lastname, SSN, email, "Checking", limt);
 	
 			  System.out.print("Thank you, the account number is " + acc.getAccountNumber());
 			  
@@ -64,7 +64,7 @@ public class main {
 			
 			  int limt1 = 0; // Saving accounts have limit of 0
 			  
-			  Account acc1=  Bank.openAccount(name1, lastname1, SSN1,email1, "Saving", limt1);
+			  Account1 acc1=  Bank1.openAccount(name1, lastname1, SSN1,email1, "Saving", limt1);
 	
 			  System.out.print("Thank you, the account number is " + acc1.getAccountNumber() );
 			  
@@ -74,7 +74,7 @@ public class main {
 		  case 3:
 			    
 			
-			  Bank.printAccounts();
+			  Bank1.printAccounts();
 	
 			  loadmenu();
 			  
@@ -84,10 +84,10 @@ public class main {
 			  System.out.println("Enter account number: ");
 			  int accountnum4 = sc.nextInt();
 				
-			  if(Bank.findAccount(accountnum4) == null){
+			  if(Bank1.findAccount(accountnum4) == null){
 					 System.out.print("Account not found");
 				 }else {
-					 Account a = Bank.findAccount(accountnum4);
+					 Account1 a = Bank1.findAccount(accountnum4);
 					 a.getTrans();
 				 }
 	
@@ -100,12 +100,12 @@ public class main {
 				  System.out.println("Enter ammount: ");
 				  int ammount = sc.nextInt();
 				  
-				 if(Bank.findAccount(accountnum) == null){
+				 if(Bank1.findAccount(accountnum) == null){
 					 System.out.print("Account not found");
 				 }else {
-					Boolean a = Bank.deposit(accountnum, ammount);
-					 if(a == true) {System.out.print("Deposit Success, the balance is: " + (Bank.findAccount(accountnum)).getBalance() );}
-					 if(a == false) {System.out.print("Deposit failed, the balance is: " + (Bank.findAccount(accountnum)).getBalance() );}
+					Boolean a = Bank1.deposit(accountnum, ammount);
+					 if(a == true) {System.out.print("Deposit Success, the balance is: " + (Bank1.findAccount(accountnum)).getBalance() );}
+					 if(a == false) {System.out.print("Deposit failed, the balance is: " + (Bank1.findAccount(accountnum)).getBalance() );}
 				 }
 				 
 				  
@@ -120,13 +120,13 @@ public class main {
 				  System.out.println("Enter ammount for withdrawl: ");
 				  int withrawlamount = sc.nextInt();
 				  
-				  if(Bank.findAccount(accountnum1) == null){
+				  if(Bank1.findAccount(accountnum1) == null){
 						 System.out.print("Account not found");
 					 }else {
 					  
-						 Boolean a = Bank.withdraw(accountnum1, withrawlamount);
-						 if(a == true) {System.out.print("Withdraw Success, the balance is: " + (Bank.findAccount(accountnum1)).getBalance() );}
-						 if(a == false) {System.out.print("Withdraw failed, the balance is: " + (Bank.findAccount(accountnum1)).getBalance() );}
+						 Boolean a = Bank1.withdraw(accountnum1, withrawlamount);
+						 if(a == true) {System.out.print("Withdraw Success, the balance is: " + (Bank1.findAccount(accountnum1)).getBalance() );}
+						 if(a == false) {System.out.print("Withdraw failed, the balance is: " + (Bank1.findAccount(accountnum1)).getBalance() );}
 			    
 					 }
 				  
@@ -138,13 +138,13 @@ public class main {
 		    	System.out.print("account number to close: " ); 
 		    	int accountnumber = sc.nextInt();
 		    	
-		    	if(Bank.findAccount(accountnumber) == null){
+		    	if(Bank1.findAccount(accountnumber) == null){
 					 System.out.print("Account not found");
 				 }else {
 					 
-					 Bank.closeAccount(accountnumber);
+					 Bank1.closeAccount(accountnumber);
 					 
-					 System.out.print("Account closed, current balance is ," +Bank.findAccount(accountnumber).getBalance() + "deposits are no longer possible"); 
+					 System.out.print("Account closed, current balance is ," +Bank1.findAccount(accountnumber).getBalance() + "deposits are no longer possible"); 
 
 				 }
 		    	

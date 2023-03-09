@@ -6,19 +6,19 @@ public class Account {
 	//Fields
 	
 	private int accountNumber;
-	private int limit;
+	protected int limit;
 	private String type;
-	private boolean accountOpen;
-	private double balance;
-	private Person accountHolder;
+	protected boolean accountOpen;
+	protected double balance;
+	private Person1 accountHolder;
 	
 	
-	private  ArrayList<String> trans=new ArrayList<String>();
-	private  int transindex;
+	protected  ArrayList<String> trans=new ArrayList<String>();
+	protected  int transindex;
 	
 	
 	//Constructor
-	public Account(int accountNumber, String type, int limit, Person accountHolder) {
+	public Account(int accountNumber, String type, int limit, Person1 accountHolder) {
 		this.accountNumber = accountNumber;
 		this.limit = limit;
 		this.type = type;
@@ -44,8 +44,8 @@ public class Account {
 		
 	if(this.accountOpen == false && this.balance<0) {return false;} // if account is closed, balance is less than 0, no more withdraws allowed.
 		
-		if((this.balance+this.limit)-amount<0) return false;
-		this.balance=this.balance-amount;
+		if((this.balance+this.limit)-amount<0) {return false;}else{this.balance=this.balance-amount;}
+		
 		transindex++;
 		trans.add(transindex + ": Debit : " + amount);
 		return true;
