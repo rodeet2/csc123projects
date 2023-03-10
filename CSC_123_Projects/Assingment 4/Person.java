@@ -1,46 +1,44 @@
- //Shimran Rodeet Rozbu (srozbu1@toromail.csudh.edu)
-
+//Shimran Rodeet Rozbu (srozbu1@toromail.csudh.edu)
 
 public class Person {
-	
-	//Fields
+
+	// Fields
 	private String firstName;
 	private String lastName;
 	private String emailAddress;
 	private String SSN;
 	private int id;
-	
-	//Constructors
+
+	// Constructors
 	public Person(String fName, String lName, String email, String SSN) {
-		firstName=fName;
-		lastName=lName;
-		this.emailAddress=email;
-		this.SSN=SSN;
-		this.id=id;
+		firstName = fName;
+		lastName = lName;
+		this.emailAddress = email;
+		this.SSN = SSN;
+		this.id = id;
 	}
 
-	//Methods
+	// Methods
 
-	public  String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
 	public String getLastName() {
 		return lastName;
 	}
+
 	public String getEmailAddress() {
 		return emailAddress;
 	}
+
 	public String getSSN() {
 		return SSN;
 	}
 
-
 	@Override
 	public String toString() {
-		return id+":"+firstName+":"+lastName+":"+emailAddress+":"+SSN;
+		return id + ":" + firstName + ":" + lastName + ":" + emailAddress + ":" + SSN;
 	}
-	
-	
 
 }
