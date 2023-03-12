@@ -7,7 +7,7 @@ public class checking_account extends Account {
 	}
 
 	@Override
-	public boolean deposit(double amount) {
+	public boolean deposit(double amount) throws Throwable {
 
 		if (amount < 0)
 			return false; // checks if amount is more than zero.
@@ -21,6 +21,10 @@ public class checking_account extends Account {
 		if (!this.accountOpen) {
 			if (this.balance + amount > 0) {
 				return false;
+				continue;
+              throw new NoSuchAccountException();
+              
+
 			}
 			this.balance = this.balance + amount;
 			transindex++;
