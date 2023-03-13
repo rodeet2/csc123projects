@@ -1,10 +1,17 @@
 //Shimran Rodeet Rozbu (srozbu1@toromail.csudh.edu)
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Bank {
 	private static ArrayList<Account> accounts = new ArrayList<>();
 	private static int accountNumbers = 100;
+	
+	static  Map<Integer, Account> map = new HashMap<Integer, Account>();
+	
+	
+	
 
 	private Bank() {
 	}
@@ -14,7 +21,9 @@ public class Bank {
 		Person customer = new Person(firstName, lastName, email, SSN);
 		Account account = new checking_account(accountNumbers++, type, limit, customer);
 		accounts.add(account);
+        map.put(accountNumbers = accountNumbers-1 , account);
 		return account;
+		
 	}
 
 	public static Account openAccountsaving(String firstName, String lastName, String email, String SSN, String type,
@@ -33,14 +42,16 @@ public class Bank {
 
 	}
 
-	// The following methods must be implemented
-
 	public static Account findAccount(int accountNumber) {
 
-		for (Account a : accounts) {
-			if (a.getAccountNumber() == accountNumber) {
-				return a;
-			}
+		/*
+		 * for (Account a : accounts) { if (a.getAccountNumber() == accountNumber) {
+		 * return a; } }
+		 */
+		
+		
+		if (map.containsKey(accountNumber)) {
+		    return map.get(accountNumber);   
 		}
 
 		return null;

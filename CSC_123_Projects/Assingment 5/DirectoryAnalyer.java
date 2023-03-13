@@ -55,8 +55,7 @@ public class DirectoryAnalyer {
 	                     e.printStackTrace();
 	                 }
 	            	 
-	            	 System.out.printf("%-15s   %d       %d     %d        %d\n",
-	                         file.getName(), fileSize, alphachar, numchar, space);
+	            	 System.out.printf(file.getName() + " File Size: " + fileSize + " Aplha Char: " + alphachar + " Num Char: " + numchar+ " Space: " +space + "\n");
 	            	 
 	            	 //count total:
 	

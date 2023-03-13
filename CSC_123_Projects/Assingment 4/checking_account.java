@@ -5,7 +5,7 @@ public class checking_account extends Account {
 		super(accountNumber, type, limit, accountHolder);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void deposit(double amount) throws Throwable {
 
@@ -29,7 +29,6 @@ public class checking_account extends Account {
 
 	}
 
-	
 	public void withdraw(double amount) throws Throwable {
 			
 		if (this.accountOpen) {

@@ -26,6 +26,9 @@ public class Account {
 		this.type = type;
 		this.accountHolder = accountHolder;
 		accountOpen = true;
+		
+		
+		
 	}
 
 	public void getTrans() {
