@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class countrysearch_2 {
@@ -16,8 +15,6 @@ public class countrysearch_2 {
 	public static void main(String[] args) {
 
 		File countries = new File("C:\\Users\\srozbu1\\Desktop\\countries.txt");
-		
-		
 		
 		
 		try {

@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable {
 
 		loadmenu();
 
 	}
 
-	public static void loadmenu() {
+	public static void loadmenu() throws Throwable {
 
 		System.out.print("...................................." + "\r\n\1–1 Open a Checking account\r\n"
 				+ "2 – Open Saving Account\r\n" + "3 – List Accounts\r\n" + "4 – Account Statement\r\n"
-				+ "5 – Deposit funds\r\n" + "6 – Withdraw funds\r\n" + "7 – Close an account\r\n" + "8 – Exit\r\n"
+				+ "5 – Deposit funds\r\n" + "6 – Withdraw funds\r\n" + "7 – Close an account\r\n" + "8 – Save transactions\r\n"+"9 – Exit\r\n"
 				+ "Please enter your choice:");
 
 		Scanner sc = new Scanner(System.in);
@@ -74,7 +74,7 @@ public class main {
 			int accountnum4 = sc.nextInt();
 
 			if (Bank.findAccount(accountnum4) == null) {
-				System.out.print("Account not found");
+				throw new NoSuchAccountException("Account not found");
 			} else {
 				Account a = Bank.findAccount(accountnum4);
 				a.getTrans();
@@ -88,17 +88,13 @@ public class main {
 			int accountnum = sc.nextInt();
 			System.out.println("Enter ammount: ");
 			int ammount = sc.nextInt();
+			if (ammount<=0 ) {System.out.print("Ammount can't be less than 1");loadmenu();break;}
+            
 
 			if (Bank.findAccount(accountnum) == null) {
-				System.out.print("Account not found");
+				throw new NoSuchAccountException("Account not found");
 			} else {
-				boolean a = Bank.deposit(accountnum, ammount);
-				if (a) {
-					System.out.print("Deposit Success, the balance is: " + (Bank.findAccount(accountnum)).getBalance());
-				}
-				if (!a) {
-					System.out.print("Deposit failed, the balance is: " + (Bank.findAccount(accountnum)).getBalance());
-				}
+				 Bank.deposit(accountnum, ammount);
 			}
 
 			loadmenu();
@@ -109,22 +105,16 @@ public class main {
 
 			System.out.println("Enter account number: ");
 			int accountnum1 = sc.nextInt();
-			System.out.println("Enter ammount for withdrawl: ");
+			System.out.println("Enter ammount to withdraw: ");
 			int withrawlamount = sc.nextInt();
+			if (withrawlamount<=0 ) {System.out.print("Ammount can't be less than 1");loadmenu();break;}
 
 			if (Bank.findAccount(accountnum1) == null) {
-				System.out.print("Account not found");
+				
+				throw new NoSuchAccountException("Account not found");
 			} else {
 
-				boolean a = Bank.withdraw(accountnum1, withrawlamount);
-				if (a) {
-					System.out
-							.print("Withdraw Success, the balance is: " + (Bank.findAccount(accountnum1)).getBalance());
-				}
-				if (!a) {
-					System.out
-							.print("Withdraw failed, the balance is: " + (Bank.findAccount(accountnum1)).getBalance());
-				}
+			  Bank.withdraw(accountnum1, withrawlamount);
 
 			}
 
@@ -137,7 +127,7 @@ public class main {
 			int accountnumber = sc.nextInt();
 
 			if (Bank.findAccount(accountnumber) == null) {
-				System.out.print("Account not found");
+				throw new NoSuchAccountException("Account not found");
 			} else {
 
 				Bank.closeAccount(accountnumber);
@@ -152,6 +142,22 @@ public class main {
 			break;
 
 		case 8:
+			System.out.println("Enter account number: ");
+			int accountnum5 = sc.nextInt();
+			
+            if (Bank.findAccount(accountnum5) == null) {
+				
+				throw new NoSuchAccountException("Account not found");
+				
+			} else {
+
+			  if(Bank.save(accountnum5)==true) {
+				  System.out.print("Save Success");
+			  }else {System.out.print("Did not Save!");}
+			}
+            loadmenu();
+			break;
+		case 9:
 
 			System.exit(0);
 

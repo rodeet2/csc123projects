@@ -3,48 +3,61 @@ public class savings_account extends Account {
 
 	public savings_account(int accountNumber, String type, int limit, Person accountHolder) {
 		super(accountNumber, type, limit, accountHolder);
-		// TODO Auto-generated constructor stub
 	}
-
-	@Override
-	public boolean deposit(double amount) {
-
-		if (amount < 0)
-			return false; // checks if amount is more than zero.
+	
+	
+	public void deposit(double amount) throws Throwable {
 
 		if (this.accountOpen) {
 			this.balance = this.balance + amount;
 			transindex++;
 			trans.add(transindex + ": Credit : " + amount);
+			System.out.print("Deposit Success, the balance is: " + (Bank.findAccount(this.getAccountNumber())).getBalance());
 		}
 
 		if (!this.accountOpen) {
 			if (this.balance + amount > 0) {
-				return false;
+			 System.out.print("Deposit failed, the balance is: " + (Bank.findAccount(this.getAccountNumber())).getBalance());
+			 throw new AccountClosedException("Account is closed and balace is more than zero, therefore can not deposit");
 			}
 			this.balance = this.balance + amount;
 			transindex++;
 			trans.add(transindex + ": Credit : " + amount);
+			System.out.print("Deposit Success, the balance is: " + (Bank.findAccount(this.getAccountNumber())).getBalance());
 		}
-
-		return true;
 
 	}
 
-	@Override
-	public boolean withdraw(double amount) {
+	
+	public void withdraw(double amount) throws Throwable {
+			
+		if (this.accountOpen) {
+			if ((this.balance + this.limit) - amount < 0) {
+				 //if  amount cross limit
+				 System.out.print("Withdraw failed, the balance is: " + (Bank.findAccount(this.getAccountNumber())).getBalance());
+				 throw new InsufficientBalanceException("The ammount is over the limit!");
 
-		 // checks if amount is more than zero.
+			}
+			this.balance = this.balance - amount;
+			transindex++;
+			trans.add(transindex + ": Debit : " + amount);
+			System.out.print("Withdrawl Success, the balance is: " + (Bank.findAccount(this.getAccountNumber())).getBalance());
 
-		if ((amount < 0) || ((this.balance - amount) <= 0)) {
-			return false;
 		}
 
-		this.balance = this.balance - amount;
-		transindex++;
-		trans.add(transindex + ": Debit : " + amount);
+		if (!this.accountOpen) {
+			if (this.balance <= 0) {
+				System.out.print("Withdraw failed, the balance is: " + (Bank.findAccount(this.getAccountNumber())).getBalance());
+				 throw new AccountClosedException("Account closed and balance is zero, can not withdraw!");
+			}
+			
+			this.balance = this.balance - amount;
+			System.out.print("Withdraw Success, the balance is: " + (Bank.findAccount(this.getAccountNumber())).getBalance());
 
-		return true;
+			transindex++;
+			trans.add(transindex + ": Debit : " + amount);
+		}
+
 	}
 
 }

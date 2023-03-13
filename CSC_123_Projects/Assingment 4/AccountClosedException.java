@@ -1,6 +1,9 @@
 
 public class AccountClosedException extends Exception {
 	
-	super("Account is closed");
+	public AccountClosedException(String message) {
+        super(message);
+    }
+
 
 }

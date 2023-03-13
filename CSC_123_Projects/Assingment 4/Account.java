@@ -1,6 +1,10 @@
 //Shimran Rodeet Rozbu (srozbu1@toromail.csudh.edu)
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Account {
 	// Fields
@@ -59,8 +63,27 @@ public class Account {
 		return accountNumber;
 	}
 
-	public boolean deposit(double amount) throws Throwable {
-		return false;
+	public void deposit(double amount) throws Throwable {
+		System.out.print("Should not print");
 	}
-
+	public void withdraw(double amount) throws Throwable {
+		
+	}
+	public boolean maketxt() {
+	
+		try {
+			PrintWriter tosave = new PrintWriter(new File("C:\\Users\\srozbu1\\Desktop\\transactions.txt"));
+			for (String trans : trans) {
+			tosave.write(trans);
+			}
+			tosave.write("\r\n Balance: " + getBalance());
+			tosave.close();
+			return true;
+			
+		} catch (FileNotFoundException e) {
+			System.err.print("File not found!");
+			return false;
+		}
+		
+	}
 }

@@ -12,7 +12,7 @@ public class Bank {
 	public static Account openAccountchecking(String firstName, String lastName, String email, String SSN, String type,
 			int limit) {
 		Person customer = new Person(firstName, lastName, email, SSN);
-		Account account = new Account(accountNumbers++, type, limit, customer);
+		Account account = new checking_account(accountNumbers++, type, limit, customer);
 		accounts.add(account);
 		return account;
 	}
@@ -20,7 +20,7 @@ public class Bank {
 	public static Account openAccountsaving(String firstName, String lastName, String email, String SSN, String type,
 			int limit) {
 		Person customer = new Person(firstName, lastName, email, SSN);
-		Account account = new checking_account(accountNumbers++, type, limit, customer);
+		Account account = new savings_account(accountNumbers++, type, 0, customer);
 		accounts.add(account);
 		return account;
 	}
@@ -47,23 +47,17 @@ public class Bank {
 
 	}
 
-	public static boolean deposit(int accountNumber, int amount) {
+	public static void deposit(int accountNumber, int amount) throws Throwable {
 
 		Account a = findAccount(accountNumber);
-		if (a == null) {
-			return false;
-		}
-		return a.deposit(amount);
+		 a.deposit(amount);
 
 	}
 
-	public static boolean withdraw(int accountNumber, int amount) {
+	public static void withdraw(int accountNumber, int amount)throws Throwable {
 
 		Account a = findAccount(accountNumber);
-		if (a == null) {
-			return false;
-		}
-		return a.withdraw(amount);
+		 a.withdraw(amount);
 
 	}
 
@@ -75,6 +69,16 @@ public class Bank {
 		a.closeAccount();
 		return true;
 
+	}
+	
+	public static boolean save(int accountNumber) {
+		Account a = findAccount(accountNumber);
+		if (a == null) {
+			return false;
+		}
+		
+		return a.maketxt();
+		
 	}
 
 }
