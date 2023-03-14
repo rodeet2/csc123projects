@@ -1,3 +1,5 @@
+//Shimran Rodeet Rozbu (srozbu1@toromail.csudh.edu)
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

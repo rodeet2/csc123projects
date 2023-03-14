@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class FileCopy {
+	//Shimran Rodeet Rozbu (srozbu1@toromail.csudh.edu)
 
 	public static void main(String[] args) {
 		
