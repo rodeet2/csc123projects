@@ -36,7 +36,6 @@ public class header_words_char {
                 charC += word.length();
             }
         }
-
         System.out.println("Total Number of headers: " + headerC);
         System.out.println("Total Number of words: " + wordC);
         System.out.println("Total Number of Characters: " + charC);
