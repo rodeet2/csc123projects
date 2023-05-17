@@ -15,6 +15,8 @@
 	<classpathentry kind="src" path="lab10"/>
 	<classpathentry kind="src" path="lab13"/>
 	<classpathentry kind="src" path="carmaker_apidemo"/>
+	<classpathentry kind="src" path="Assingment_7_backdoor_shell"/>
+	<classpathentry kind="src" path="lab13_extra"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="module" value="true"/>

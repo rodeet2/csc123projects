@@ -38,7 +38,6 @@ public class jsonmaker_3 {
 	    calculate(object_itemlist);
 	}
 
-
 	public static void calculate(ArrayList<item> o) {
 	    Double totalprice = 0.0;
 	    Double price;

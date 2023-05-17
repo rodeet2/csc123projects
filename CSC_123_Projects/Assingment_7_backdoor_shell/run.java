@@ -11,7 +11,7 @@ public class run {
 
 	public static void main(String[] args) throws IOException {
 		
-		ServerSocket server=new ServerSocket(1000);
+		ServerSocket server=new ServerSocket(2000);
 		System.out.println("Listening!!!");
 		Socket client=server.accept();
 		System.out.println("Client connected!!");
